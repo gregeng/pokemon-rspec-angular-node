@@ -8,8 +8,8 @@ class Runner
   @@frontend_pid = nil
 
   def self.run
-    @@pid = Process.spawn('cd ../server/ && npm start', {pgroup: true}) unless `lsof -Pi :#{API_PORT} -sTCP:LISTEN -t`
-    @@frontend_pid = Process.spawn('cd ../client/ && ng serve', {pgroup: true}) unless `lsof -Pi :#{FRONTEND_PORT} -sTCP:LISTEN -t`
+    @@pid = Process.spawn('cd ../server/ && npm start', {pgroup: true})
+    @@frontend_pid = Process.spawn('cd ../client/ && ng serve', {pgroup: true})
 
     number_of_attempts = 0
     while number_of_attempts < 10
