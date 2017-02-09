@@ -6,10 +6,10 @@ CREATE DATABASE pokemons;
 CREATE TABLE pokemons (
   ID SERIAL PRIMARY KEY,
   name VARCHAR,
-  type VARCHAR,
+  element_type VARCHAR,
   age INTEGER,
   sex VARCHAR
 );
 
-INSERT INTO pokemons (name, type, age, sex)
+INSERT INTO pokemons (name, element_type, age, sex)
   VALUES ('Bulbasaur', 'Grass', 3, 'M');

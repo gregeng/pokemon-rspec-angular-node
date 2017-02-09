@@ -1,5 +1,8 @@
 require 'runner'
 require 'httparty'
+require_relative '../lib/models'
+require_relative '../configuration'
+require_relative '../lib/object_creation_methods'
 
 RSpec.configure do |config|
   # Default RSpec configs
@@ -20,6 +23,11 @@ RSpec.configure do |config|
   # Stop the Go server after all of the tests
   config.after(:suite) do
     Runner.stop
+  end
+
+  config.before(:each) do
+    require 'pry'
+    binding.pry
   end
 end
 

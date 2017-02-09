@@ -9,7 +9,7 @@
 6 silly lifecycle node-postgres-promises@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle node-postgres-promises@0.0.0~start: node-postgres-promises@0.0.0
 8 verbose lifecycle node-postgres-promises@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle node-postgres-promises@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/gregeng/workspace/pokemon-rspec-angular-node/server/node_modules/.bin:/usr/local/Cellar/node/7.1.0/bin:/Users/gregeng/.rbenv/shims:/usr/local/sbin:/Users/gregeng/.rbenv/shims:/Users/gregeng/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+9 verbose lifecycle node-postgres-promises@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/gregeng/workspace/pokemon-rspec-angular-node/server/node_modules/.bin:/usr/local/Cellar/node/7.1.0/bin:/Users/gregeng/.rbenv/versions/2.3.1/bin:/usr/local/Cellar/rbenv/1.0.0/libexec:/Users/gregeng/.rbenv/shims:/usr/local/sbin:/Users/gregeng/.rbenv/shims:/Users/gregeng/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 10 verbose lifecycle node-postgres-promises@0.0.0~start: CWD: /Users/gregeng/workspace/pokemon-rspec-angular-node/server
 11 silly lifecycle node-postgres-promises@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle node-postgres-promises@0.0.0~start: Returned: code: 1  signal: null
