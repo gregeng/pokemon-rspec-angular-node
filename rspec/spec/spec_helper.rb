@@ -24,11 +24,6 @@ RSpec.configure do |config|
   config.after(:suite) do
     Runner.stop
   end
-
-  config.before(:each) do
-    require 'pry'
-    binding.pry
-  end
 end
 
 # Convenience method to make requests to the Go server

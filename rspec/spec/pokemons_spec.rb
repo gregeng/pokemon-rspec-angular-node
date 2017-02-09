@@ -1,18 +1,11 @@
 require 'spec_helper'
+Pokemons.connection
 
 describe 'pokemons' do
   it 'returns a list of pokemon' do
     response = get('/api/pokemons')
 
-    pokemons = [
-      {
-        "id": 1,
-        "name": "Bulbasaur",
-        "type": "Grass",
-        "age": 3,
-        "sex": "M"
-      }
-    ]
+    pokemons = Pokemons.all
 
     expect(response.body).to eq(pokemons.to_json)
   end
