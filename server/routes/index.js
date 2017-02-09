@@ -4,6 +4,7 @@ var router = express.Router();
 var db = require('../queries');
 
 
+router.get('/ping', db.ping);
 router.get('/api/pokemons', db.getAllPokemons);
 router.get('/api/pokemons/:id', db.getSinglePokemon);
 router.post('/api/pokemons', db.createPokemon);
