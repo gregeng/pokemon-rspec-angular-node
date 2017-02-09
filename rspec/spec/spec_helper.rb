@@ -1,5 +1,6 @@
 require 'runner'
 require 'httparty'
+require 'database_cleaner'
 require_relative '../lib/models'
 require_relative '../configuration'
 require_relative '../lib/object_creation_methods'
@@ -15,13 +16,19 @@ RSpec.configure do |config|
 
   Kernel.srand config.seed
 
-  # Start up the Go server before all tests
   config.before(:suite) do
     Runner.run
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
-  # Stop the Go server after all of the tests
+  config.before(:each) do
+    DatabaseCleaner.start
+    DatabaseCleaner.clean
+  end
+
   config.after(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
     Runner.stop
   end
 end

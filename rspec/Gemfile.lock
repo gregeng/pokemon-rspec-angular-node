@@ -16,6 +16,7 @@ GEM
     byebug (9.0.6)
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
+    database_cleaner (1.5.3)
     diff-lcs (1.3)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
@@ -55,6 +56,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  database_cleaner
   httparty
   pg
   pry

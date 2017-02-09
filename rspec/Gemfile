@@ -10,4 +10,5 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rake'
   gem 'rspec'
+  gem 'database_cleaner'
 end
