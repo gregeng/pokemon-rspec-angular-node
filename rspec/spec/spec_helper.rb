@@ -1,6 +1,8 @@
 require 'runner'
 require 'httparty'
 require 'database_cleaner'
+require 'capybara/rspec'
+
 require_relative '../lib/models'
 require_relative '../configuration'
 require_relative '../lib/object_creation_methods'
@@ -31,6 +33,12 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
     Runner.stop
   end
+
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
+
+  Capybara.javascript_driver = :chrome
 end
 
 # Convenience method to make requests to the Go server
