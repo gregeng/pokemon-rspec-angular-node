@@ -19,7 +19,15 @@ echo "******************************************"
 
 npm install
 
-cd ../rspec
+cd db/
+
+./run_migrations.sh
+
+echo "******************************************"
+echo "+++++ Running database migrations +++++++ "
+echo "******************************************"
+
+cd ../../rspec
 
 echo "******************************************"
 echo "++ Installing ruby testing dependencies ++"
