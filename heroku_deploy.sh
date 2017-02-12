@@ -3,12 +3,10 @@
 # exit script if there are failures in any of the processes
 set -e
 
-cd client/
-
-npm install
-
-ng build --environment=prod --output-path=../server/dist/
-
 echo "***********************************************"
-echo " Built frontend source files for production    "
+echo " Committing distribution files                 "
 echo "***********************************************"
+
+git add server/dist/
+git commit -m "Created production distribution on: $(date)"
+git subtree push --prefix server heroku master
