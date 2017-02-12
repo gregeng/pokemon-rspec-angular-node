@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": ". ../set_env.sh && node ./bin/www",
+    "test-server": ". ../set_test_env.sh && node ./bin/www"
   },
   "dependencies": {
     "bluebird": "^3.4.7",

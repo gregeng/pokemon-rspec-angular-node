@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Headers, Http} from '@angular/http'
+import {environment} from '../../environments/environment'
 
 import 'rxjs/add/operator/toPromise'
 import {Pokemon} from "./pokemon";
 
 @Injectable()
 export class PokemonService {
-  private pokemonsUrl = 'http://localhost:3000/api/pokemons'; // URL to web api
+  private pokemonsUrl = `${environment.API_URL}/pokemons`; // URL to web api
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}

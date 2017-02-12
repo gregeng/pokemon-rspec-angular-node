@@ -1,6 +1,6 @@
 require "spec_helper"
 
-base_url = "http://localhost:4200"
+base_url = "http://localhost:4201"
 
 feature "Pokemons", js: true do
   describe "viewing all the pokemons", js: true do

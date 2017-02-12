@@ -1,15 +1,15 @@
 require 'httparty'
 
 class Runner
-  API_PORT = 3000
-  FRONTEND_PORT = 4200
-
   @@pid = nil
   @@frontend_pid = nil
 
+  API_PORT=4000
+  FRONTEND_PORT=4201
+
   def self.run
-    @@pid = Process.spawn('cd ../server/ && npm start', {pgroup: true})
-    @@frontend_pid = Process.spawn('cd ../client/ && ng serve', {pgroup: true})
+    @@pid = Process.spawn('cd ../server/ && npm run test-server', {pgroup: true})
+    @@frontend_pid = Process.spawn('cd ../client/ && npm run test-frontend-server', {pgroup: true})
 
     number_of_attempts = 0
     while number_of_attempts < 10

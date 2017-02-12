@@ -43,5 +43,5 @@ end
 
 # Convenience method to make requests to the Go server
 def get(path)
-  HTTParty.get("http://localhost:3000#{path}")
+  HTTParty.get("http://localhost:4000#{path}")
 end

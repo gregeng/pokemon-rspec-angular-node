@@ -5,7 +5,8 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": ". ../set_env.sh && ng serve",
+    "test-frontend-server": ". ../set_test_env.sh && ng serve -p 4201 --environment=test",
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor"
