@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "api_helper"
 
 describe 'ping' do
   it 'returns pong' do

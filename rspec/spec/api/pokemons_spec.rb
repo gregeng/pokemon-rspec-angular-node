@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "api_helper"
 
 describe 'pokemons' do
   it 'returns a list of pokemon' do

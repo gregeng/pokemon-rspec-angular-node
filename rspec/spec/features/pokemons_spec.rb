@@ -1,4 +1,4 @@
-require "spec_helper"
+require "feature_helper"
 
 base_url = "http://localhost:4201"
 

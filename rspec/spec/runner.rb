@@ -7,7 +7,7 @@ class Runner
   API_PORT=4000
   FRONTEND_PORT=4201
 
-  def self.run
+  def self.run_feature
     @@pid = Process.spawn('cd ../server/ && npm run test-server', {pgroup: true})
     @@frontend_pid = Process.spawn('cd ../client/ && npm run test-frontend-server', {pgroup: true})
 
@@ -25,6 +25,24 @@ class Runner
 
       raise 'Failed to start api server' if number_of_attempts == 10
     end
+  end
+
+  def self.run_api
+      @@pid = Process.spawn('cd ../server/ && npm run test-server', {pgroup: true})
+
+      number_of_attempts = 0
+      while number_of_attempts < 10
+        begin
+          response = HTTParty.get("http://localhost:#{API_PORT}/ping") # hit the ping endpoint
+
+          break if response.code == 200 # success!
+        rescue Errno::ECONNREFUSED # rescue only if the exception is a failure to connect
+          number_of_attempts += 1
+          sleep 0.5
+        end
+
+        raise 'Failed to start api server' if number_of_attempts == 10
+      end
   end
 
   def self.stop
