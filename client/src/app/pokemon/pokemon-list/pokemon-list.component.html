@@ -1,10 +1,11 @@
-<h2>Gotta Catch Em All</h2>
-<ul class="pokemons">
-  <li *ngFor="let pokemon of pokemons">
-    <p>id: {{pokemon.id}}</p>
-    <p>name: {{pokemon.name}}</p>
-    <p>type: {{pokemon.element_type}}</p>
-    <p>age: {{pokemon.age}}</p>
-    <p>sex: {{pokemon.sex}}</p>
+<h3 class="text-center">Gotta Catch Em All</h3>
+
+<div class="list-group pokemons" *ngFor="let pokemon of pokemons">
+  <li class="list-group-item">
+    <h4 class="list-group-item-heading">{{pokemon.name}}</h4>
+    <p class="list-group-item-text">id: {{pokemon.id}}</p>
+    <p class="list-group-item-text">type: {{pokemon.element_type}}</p>
+    <p class="list-group-item-text">age: {{pokemon.age}}</p>
+    <p class="list-group-item-text">sex: {{pokemon.sex}}</p>
   </li>
-</ul>
+</div>
