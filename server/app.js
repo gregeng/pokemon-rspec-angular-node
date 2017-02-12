@@ -27,10 +27,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 var routes = require('./routes/index');
 app.use('/', routes);
+
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static(__dirname + '/dist'));
+    // For all GET requests, send back index.html
+    // so that PathLocationStrategy can be used
+    // *Make sure to declare after routes, so all api routes take precedent
+    app.get('/*', function(req, res) {
+        res.sendFile(path.join(__dirname + '/dist/index.html'));
+    });
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
