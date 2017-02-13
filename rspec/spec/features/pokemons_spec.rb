@@ -15,11 +15,9 @@ feature "Pokemons", js: true do
 
       expect(page).to have_content("Gotta Catch Em All")
 
-      within "ul" do
-        expect(page).to have_content "Bulbasaur"
-        expect(page).to have_content "Charmander"
-        expect(page).to have_content "Squirtle"
-      end
+      expect(page).to have_content "Bulbasaur"
+      expect(page).to have_content "Charmander"
+      expect(page).to have_content "Squirtle"
     end
   end
 end

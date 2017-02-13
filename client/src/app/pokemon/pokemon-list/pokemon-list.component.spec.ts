@@ -7,6 +7,9 @@ import { PokemonListComponent } from './pokemon-list.component';
 import {PokemonService} from "../pokemon.service";
 import {Http, BaseRequestOptions} from "@angular/http";
 import {MockBackend} from "@angular/http/testing";
+import { PokemonFormComponent } from "../pokemon-form/pokemon-form.component";
+import { ReactiveFormsModule } from '@angular/forms'
+
 
 describe('PokemonListComponent', () => {
   let component: PokemonListComponent;
@@ -14,6 +17,7 @@ describe('PokemonListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule],
       providers: [
         PokemonService,
         Http,
@@ -27,7 +31,7 @@ describe('PokemonListComponent', () => {
           deps: [MockBackend, BaseRequestOptions],
         },
       ],
-      declarations: [ PokemonListComponent ]
+      declarations: [ PokemonListComponent, PokemonFormComponent ]
     })
     .compileComponents();
   }));
