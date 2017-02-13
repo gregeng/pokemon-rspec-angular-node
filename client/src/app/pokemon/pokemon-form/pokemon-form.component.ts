@@ -23,10 +23,10 @@ export class PokemonFormComponent implements OnInit {
 
   configureForm(pokemon?: Pokemon) {
     this.pokemonForm = new FormGroup({
-        name: new FormControl(this.currentPokemon.name, Validators.required),
-        elementType: new FormControl(this.currentPokemon.elementType, Validators.required),
-        age: new FormControl(this.currentPokemon.age, Validators.required),
-        sex: new FormControl(this.currentPokemon.sex, Validators.required)
+      name: new FormControl(this.currentPokemon.name, Validators.required),
+      elementType: new FormControl(this.currentPokemon.elementType, Validators.required),
+      age: new FormControl(this.currentPokemon.age, Validators.required),
+      sex: new FormControl(this.currentPokemon.sex, Validators.required)
     });
   }
 
@@ -38,6 +38,11 @@ export class PokemonFormComponent implements OnInit {
     this.createPokemon();
   }
 
+  freshForm() {
+    this.pokemonForm.reset();
+    this.cleanPokemon();
+  }
+
   createPokemon() {
     console.log(this.currentPokemon);
     this.pokemonService.createPokemon(this.currentPokemon).then((response) => {
@@ -47,4 +52,7 @@ export class PokemonFormComponent implements OnInit {
     });
   }
 
+  cleanPokemon() {
+    this.currentPokemon = new Pokemon(null, null, null, null, null);
+  }
 }

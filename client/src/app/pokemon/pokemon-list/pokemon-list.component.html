@@ -1,7 +1,7 @@
 <h3 class="text-center">Gotta Catch Em All</h3>
 
 <div class="row">
-  <button type="button" id="catch-pokemon-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#pokemonForm">
+  <button type="button" id="catch-pokemon-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#pokemonForm" (click)="pokemonForm.freshForm()">
     Catch a Pokemon
   </button>
 </div>
@@ -15,4 +15,4 @@
     <p class="list-group-item-text">sex: {{pokemon.sex}}</p>
   </li>
 </div>
-<app-pokemon-form (onPokemonCreated)="onPokemonCreated($event)"></app-pokemon-form>
+<app-pokemon-form #pokemonForm (onPokemonCreated)="onPokemonCreated($event)"></app-pokemon-form>
