@@ -1,5 +1,11 @@
 <h3 class="text-center">Gotta Catch Em All</h3>
 
+<div class="row">
+  <button type="button" id="catch-pokemon-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#pokemonForm">
+    Catch a Pokemon
+  </button>
+</div>
+
 <div class="list-group pokemons" *ngFor="let pokemon of pokemons">
   <li class="list-group-item">
     <h4 class="list-group-item-heading">{{pokemon.name}}</h4>
@@ -9,3 +15,4 @@
     <p class="list-group-item-text">sex: {{pokemon.sex}}</p>
   </li>
 </div>
+<app-pokemon-form></app-pokemon-form>

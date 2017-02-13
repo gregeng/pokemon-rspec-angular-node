@@ -46,8 +46,8 @@ function getSinglePokemon(req, res, next) {
 
 function createPokemon(req, res, next) {
     req.body.age = parseInt(req.body.age);
-    db.none('insert into pokemons(name, breed, age, sex)' +
-        'values(${name}, ${breed}, ${age}, ${sex})',
+    db.none('insert into pokemons(name, element_type, age, sex)' +
+        'values(${name}, ${element_type}, ${age}, ${sex})',
         req.body)
         .then(function (data) {
             res.status(200)
@@ -59,8 +59,8 @@ function createPokemon(req, res, next) {
 }
 
 function updatePokemon(req, res, next) {
-    db.none('update pokemons set name=$1, type=$2, age=$3, sex=$4 where id=$5',
-        [req.body.name, req.body.breed, parseInt(req.body.age),
+    db.none('update pokemons set name=$1, element_type=$2, age=$3, sex=$4 where id=$5',
+        [req.body.name, req.body.element_type, parseInt(req.body.age),
             req.body.sex, parseInt(req.params.id)])
         .then(function (data) {
             res.status(200)

@@ -1,7 +1,9 @@
 export class Pokemon {
-  id: number;
-  name: string;
-  element_type: string;
-  age: number;
-  sex: string;
+  constructor(
+    public id: number,
+    public name: string,
+    public elementType: string,
+    public age: number,
+    public sex: string
+  ) { }
 }

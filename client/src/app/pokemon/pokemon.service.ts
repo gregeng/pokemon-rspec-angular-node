@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Headers, Http} from '@angular/http'
 import {environment} from '../../environments/environment'
 
@@ -10,12 +10,30 @@ export class PokemonService {
   private pokemonsUrl = `${environment.API_URL}/pokemons`; // URL to web api
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+  }
 
   getPokemons(): Promise<Pokemon[]> {
     return this.http.get(this.pokemonsUrl, this.headers)
       .toPromise()
       .then(response => response.json() as Pokemon[])
+      .catch(this.handleError);
+  }
+
+  createPokemon(pokemon: Pokemon): Promise<Pokemon[]> {
+    const requestBody = {
+      name: pokemon.name,
+      element_type: pokemon.elementType,
+      age: pokemon.age,
+      sex: pokemon.sex
+    };
+
+    return this.http.post(this.pokemonsUrl, requestBody, this.headers)
+      .toPromise()
+      .then((response) => {
+        console.log(response.status);
+        console.log(response);
+      })
       .catch(this.handleError);
   }
 
