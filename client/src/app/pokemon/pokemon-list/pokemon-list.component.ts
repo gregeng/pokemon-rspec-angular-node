@@ -22,4 +22,8 @@ export class PokemonListComponent implements OnInit {
   getPokemons(): void {
     this.pokemonService.getPokemons().then(pokemons => this.pokemons = pokemons);
   }
+
+  onPokemonCreated(created: boolean) {
+    created ? this.getPokemons() : null;
+  }
 }

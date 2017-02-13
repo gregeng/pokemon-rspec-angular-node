@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Headers, Http} from '@angular/http'
+import { Injectable } from '@angular/core';
+import {Headers, Http, Response} from '@angular/http'
 import {environment} from '../../environments/environment'
 
 import 'rxjs/add/operator/toPromise'
@@ -10,8 +10,7 @@ export class PokemonService {
   private pokemonsUrl = `${environment.API_URL}/pokemons`; // URL to web api
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http: Http) {
-  }
+  constructor(private http: Http) {}
 
   getPokemons(): Promise<Pokemon[]> {
     return this.http.get(this.pokemonsUrl, this.headers)
@@ -20,7 +19,7 @@ export class PokemonService {
       .catch(this.handleError);
   }
 
-  createPokemon(pokemon: Pokemon): Promise<Pokemon[]> {
+  createPokemon(pokemon: Pokemon): Promise<Response> {
     const requestBody = {
       name: pokemon.name,
       element_type: pokemon.elementType,
@@ -31,8 +30,7 @@ export class PokemonService {
     return this.http.post(this.pokemonsUrl, requestBody, this.headers)
       .toPromise()
       .then((response) => {
-        console.log(response.status);
-        console.log(response);
+        return response
       })
       .catch(this.handleError);
   }

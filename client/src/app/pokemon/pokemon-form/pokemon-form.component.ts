@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {Pokemon} from "../pokemon";
 import {PokemonService} from "../pokemon.service";
@@ -9,6 +9,8 @@ import {PokemonService} from "../pokemon.service";
   styleUrls: ['./pokemon-form.component.scss']
 })
 export class PokemonFormComponent implements OnInit {
+  @Output() onPokemonCreated = new EventEmitter<boolean>();
+
   private pokemonForm: FormGroup;
   private currentPokemon = new Pokemon(null, null, null, null, null);
 
@@ -38,7 +40,11 @@ export class PokemonFormComponent implements OnInit {
 
   createPokemon() {
     console.log(this.currentPokemon);
-    this.pokemonService.createPokemon(this.currentPokemon);
+    this.pokemonService.createPokemon(this.currentPokemon).then((response) => {
+      this.onPokemonCreated.emit(response.ok);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
 }

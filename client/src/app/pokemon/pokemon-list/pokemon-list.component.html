@@ -15,4 +15,4 @@
     <p class="list-group-item-text">sex: {{pokemon.sex}}</p>
   </li>
 </div>
-<app-pokemon-form></app-pokemon-form>
+<app-pokemon-form (onPokemonCreated)="onPokemonCreated($event)"></app-pokemon-form>
