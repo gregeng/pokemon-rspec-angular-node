@@ -11,9 +11,16 @@
     <h4 class="list-group-item-heading">{{pokemon.name}}</h4>
     <p class="list-group-item-text">id: {{pokemon.id}}</p>
     <p class="list-group-item-text">type: {{pokemon.elementType}}</p>
-    <p class="list-group-item-text">birthdate: {{pokemon.presentedAgeWithoutPipe}}</p>
-    <p class="list-group-item-text">birthdate 2: {{pokemon.presentedAgeWithoutPipe}}</p>
+
+    <p class="list-group-item-text">birthdate: {{pokemon.age | date: 'MM/dd/yyyy' }}</p>
+    <!-- this alone would load quick enough, the click highlighting is responsive -->
+
+    <p class="list-group-item-text">birthdate 2: {{pokemon.presentedAgeWithPipeFromComponent}}</p>
+    <!-- this alone would load slowly, the click highlighting is slow -->
+
     <p class="list-group-item-text">birthdate 3: {{pokemon.presentedAgeWithoutPipe}}</p>
+    <!-- this alone would load quickly, the click highlighting is also responsive-->
+
     <p class="list-group-item-text">sex: {{pokemon.sex}}</p>
   </li>
 </div>

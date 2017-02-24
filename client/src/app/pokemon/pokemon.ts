@@ -10,7 +10,7 @@ export class Pokemon {
     public sex: string
   ) { }
 
-  get presentedAge() {
+  get presentedAgeWithPipeFromComponent() {
     return datePipe.transform(this.age, "MM/dd/yyyy");
   }
 
