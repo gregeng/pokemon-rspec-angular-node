@@ -9,6 +9,7 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 // Service
 import {PokemonService} from "./pokemon.service";
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
+import {PokemonPresenter} from "./pokemon-list/pokemon.presenter";
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
     PokemonFormComponent
   ],
   providers: [
-    PokemonService
+    PokemonService,
+    PokemonPresenter
   ]
 })
 export class PokemonModule { }
