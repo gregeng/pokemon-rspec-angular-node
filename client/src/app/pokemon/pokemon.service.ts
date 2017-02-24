@@ -15,7 +15,17 @@ export class PokemonService {
   getPokemons(): Promise<Pokemon[]> {
     return this.http.get(this.pokemonsUrl, this.headers)
       .toPromise()
-      .then(response => response.json() as Pokemon[])
+      .then((response) => {
+        return response.json().map((pokemon) => {
+          return new Pokemon(
+            pokemon.id,
+            pokemon.name,
+            pokemon.element_type,
+            pokemon.age,
+            pokemon.sex
+          )
+        })
+      })
       .catch(this.handleError);
   }
 

@@ -7,11 +7,13 @@
 </div>
 
 <div class="list-group pokemons" *ngFor="let pokemon of pokemons">
-  <li class="list-group-item">
+  <li class="list-group-item" (click)="highlightCell($event)">
     <h4 class="list-group-item-heading">{{pokemon.name}}</h4>
     <p class="list-group-item-text">id: {{pokemon.id}}</p>
-    <p class="list-group-item-text">type: {{pokemon.element_type}}</p>
-    <p class="list-group-item-text">age: {{pokemon.age}}</p>
+    <p class="list-group-item-text">type: {{pokemon.elementType}}</p>
+    <p class="list-group-item-text">birthdate: {{pokemon.presentedAgeWithoutPipe}}</p>
+    <p class="list-group-item-text">birthdate 2: {{pokemon.presentedAgeWithoutPipe}}</p>
+    <p class="list-group-item-text">birthdate 3: {{pokemon.presentedAgeWithoutPipe}}</p>
     <p class="list-group-item-text">sex: {{pokemon.sex}}</p>
   </li>
 </div>
